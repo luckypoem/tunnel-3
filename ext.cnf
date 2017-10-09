@@ -1,0 +1,8 @@
+#-*- coding:utf-8-unix -*-
+basicConstraints = critical, CA:FALSE
+keyUsage = critical, keyCertSign, keyEncipherment
+extendedKeyUsage = serverAuth
+subjectAltName = @alts
+[alts]
+IP.1 = 127.0.0.1
+DNS.1 = localhost
