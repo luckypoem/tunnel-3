@@ -1,4 +1,6 @@
 # tunnel
+[![Build Status](https://travis-ci.org/henglinli/tunnel.svg?branch=master)](https://travis-ci.org/henglinli/tunnel)
+
 sock5 over {tls} tunnel
 
 ## try
