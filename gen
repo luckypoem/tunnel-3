@@ -3,7 +3,7 @@
 #
 CN=tunnel
 #
-function gen_ca() {
+function gen_ca {
     #openssl genrsa -aes256 -out master.rsa.key 4096
     openssl genrsa -out master.rsa.key 4096
     openssl req -new -x509 -key master.rsa.key -out ca.rsa.crt -days 3650 -subj "/CN=henglinli/emailAddress=henglinli@gmail.com"
@@ -11,7 +11,7 @@ function gen_ca() {
 #
 gen_go=vendor/tunnel/base.go
 #
-function gen_server() {
+function gen_server {
     openssl ecparam -genkey -name secp521r1 -out server.key
     openssl req -new -key server.key -out server.csr -days 365 -subj "/emailAddress=henglinli@gmail.com/CN=${CN}"
     openssl x509 -req -CA ca.rsa.crt -CAkey master.rsa.key -CAcreateserial -in server.csr -out server.crt -extfile ext.cnf
@@ -39,7 +39,7 @@ function gen_server() {
     rm server.key server.crt
 }
 #
-function gen_client() {
+function gen_client {
     openssl ecparam -genkey -name secp521r1 -out client.key
     openssl req -new -key client.key -out client.csr -days 365 -subj "/CN=client/emailAddress=henglinli@gmail.com"
     openssl x509 -req -CA ca.rsa.crt -CAkey master.rsa.key -CAcreateserial -in client.csr -out client.crt
@@ -64,4 +64,3 @@ function gen_client() {
 gen_ca
 gen_server
 gen_client
-

@@ -14,7 +14,7 @@ tunnel-client:
 	go build -o tunnel-client -ldflags '-w -s' client/client.go
 #
 dep:
-	go get -v -u github.com/golang/glog
+	go get -u github.com/golang/glog
 	./gen
 #
 clean:
