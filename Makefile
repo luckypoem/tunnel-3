@@ -1,5 +1,5 @@
 # -*-coding:utf-8-unix;-*-
-all: tunnel-server tunnel-client
+all: dep tunnel-server tunnel-client
 #
 run-client: tunnel-client
 	./tunnel-client -logtostderr
@@ -14,8 +14,9 @@ tunnel-client:
 	go build -o tunnel-client -ldflags '-w -s' client/client.go
 #
 dep:
-	go get -u github.com/golang/glog
+	go get -v -u github.com/golang/glog
 	./gen
 #
 clean:
 	${RM} *~ tunnel-server tunnel-client
+
