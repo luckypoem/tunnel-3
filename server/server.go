@@ -4,7 +4,7 @@ package main
 import (
 	"flag"
 	"github.com/golang/glog"
-	"tunnel"
+	"github.com/luckypoem/tunnel-3"
 )
 
 func init() {
